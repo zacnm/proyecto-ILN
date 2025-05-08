@@ -1,3 +1,5 @@
+# VERSIÓN NO USADO
+
 import pandas as pd
 import torch
 from torch.utils.data import Dataset
@@ -46,8 +48,8 @@ class SarcasmDataset(Dataset):
 
 # 2. Lectura de datos y muestreo balanceado
 df = pd.read_csv("./train-balanced-sarcasm.csv")[['comment','label']].dropna()
-df_pos = df[df.label==1].sample(4999, random_state=42)
-df_neg = df[df.label==0].sample(4999, random_state=42)
+df_pos = df[df.label==1].sample(5000, random_state=42)
+df_neg = df[df.label==0].sample(5000, random_state=42)
 df = pd.concat([df_pos, df_neg]).sample(frac=1, random_state=42).reset_index(drop=True)
 print("Clases balanceadas:", df.label.value_counts().to_dict())
 
