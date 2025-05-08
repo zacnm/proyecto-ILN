@@ -16,4 +16,4 @@ Para ejecutar el código de entrenamiento, sigue estos pasos:
 
 Una vez que el código se haya ejecutado y se haya guardado un modelo entrenado, puedes probarlo con el front-end de Streamlit, que se ejecuta con `streamlit run app.py`
 
-También este repositorio incluye el archivo `V2.py`, que fue un experimento con la técnica de validación cruzada estratificada con 5 particiones, pero fue demasiado lento y no lo usamos, solo está incluido por completud.
+También se incluye en este repositorio el archivo `V2.py`, que fue un experimento con la técnica de validación cruzada estratificada con 5 particiones. Sin embargo, resultó ser demasiado lento y no lo utilizamos; se incluye únicamente por completitud.

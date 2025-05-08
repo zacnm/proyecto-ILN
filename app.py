@@ -41,14 +41,16 @@ if user_input:
         return_tensors="pt"
     )
     
-    # Realizar la predicción
+    # Perform prediction
     with torch.no_grad():
         outputs = model(**inputs)
         logits = outputs.logits
+        probabilities = torch.softmax(logits, dim=1)
         prediction = torch.argmax(logits, dim=1).item()
+        confidence = int(probabilities[0, prediction].item() * 100)
     
-    # Mostrar el resultado
+    # Display the result
     if prediction == 1:
-        st.write("Predicción: Sarcástico 😏")
+        st.write(f"Predicción: Sarcástico 😏 (Confianza: {confidence}%)")
     else:
-        st.write("Predicción: No sarcástico 😊")
+        st.write(f"Predicción: No sarcástico 😊 (Confianza: {confidence}%)")
